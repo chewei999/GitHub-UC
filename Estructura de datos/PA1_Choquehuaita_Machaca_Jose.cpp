@@ -2,6 +2,9 @@
 
 using namespace std;
 
+float resultados[4];
+
 int main() {
-    cout << "Hola Mundo";
+    cout << "Ingrese un numero entre 1 y 20:";
+    
 }

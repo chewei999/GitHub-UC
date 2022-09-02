@@ -37,6 +37,9 @@ int main() {
 
     cout << num << '\n';
 
+    //TODO:add functiuons
+
+
     system("pause");
     return 0;
 }

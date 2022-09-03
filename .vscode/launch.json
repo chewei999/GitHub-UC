@@ -1,6 +1,13 @@
 {
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch Programa1",
+            "request": "launch",
+            "mainClass": "Programa1",
+            "projectName": "GitHub-UC_c1e7edb1"
+        },
+        {
             "name": "C/C++: g++.exe Compilar y depurar el archivo activo",
             "type": "cppdbg",
             "request": "launch",

@@ -1,0 +1,59 @@
+@startuml
+    class Persona{
+        #nombre : String
+        #apellido_paterno : String
+        #apellido_materno : String
+    }
+
+    class Alumno {
+        -codigo : String
+        -celular : int
+        +{abstract}void registrarAlumno()
+        +{abstract}void listarAlumno(string codigo_grupo)
+    }
+
+    class Docente{
+        -resumen_ejecutivo : String
+        +{abstract}void registrarDocente()
+    }
+
+    class Supervisor {
+        -dni : int
+        -correo : String
+        +{abstract}void registrarSupervisor()
+    }
+
+    class Grupo{
+        -codigo : String
+        -fecha_creacion : Date
+        +{abstract}void agregarAlumno(string codigo_alumno)
+        +{abstract}void listarGrupo(date fecha_creacion)
+    }
+
+    class Sesion{
+        -fechaDictado : Date
+        -tema : String
+        -dificultad : Int
+        -descripcion : String
+        +{abstract}void registrarSesion()
+        +{abstract}void listarSesiones(date fecha_inicio, date fecha_final)
+    }
+
+    class Ambiente{
+        -codigo : String
+        -nombre_largo : String
+        -nombre_corto : String
+        -area : Double
+        +{abstract}void registrarAmbiente()
+    }
+
+
+    Persona <|-- Alumno
+    Persona <|-- Docente
+    Persona <|-- Supervisor
+    Grupo "n" -- "1" Supervisor
+    Grupo "1" -- "n" Alumno
+    Grupo "1" -- "n" Sesion
+    Sesion "n" -- "n" Docente
+    Sesion "1" -- "n" Ambiente
+@enduml

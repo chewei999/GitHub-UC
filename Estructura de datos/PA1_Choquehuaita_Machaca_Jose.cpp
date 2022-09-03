@@ -1,4 +1,6 @@
 #include <iostream>
+#include <math.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -9,12 +11,37 @@ using namespace std;
 string initMsg = "Ingrese un numero entero entre 1 y 20: ";
 string initError = "ERROR...El numero debe ser entero y entre 0 y 20, vuelva a intentar.\n\n";
 
-// Declaracion de variables
-float results[4];       // Vector para almacenar resultados
-int num;                // Numero que ingresa usuario
-bool endInput = false;  // Booleano para validar entrada de datos
+// Variables declaration
+float results[4];       // Array to store results
+int num;                // Number entered by user
+bool endInput = false;  // Boolean to validate data input
 
+// Functions definitions
+int power(int num) {
+    return num*num;
+}
 
+int units(int num) {
+
+    if (num%2 == 0) {
+        return abs(20 - num);
+    }
+    else {
+        return abs(10 - num);
+    }
+}
+
+int sum(int num) {
+    int acum = 0;
+    for (int i=1 ; i<=num; i++) {
+        acum +=i;
+    }
+    return acum;
+}
+
+double average(double num) {
+    return (power(num) + units(num) + sum(num))/3.0;
+}
 
 int main() {
 
@@ -38,10 +65,16 @@ int main() {
         }
     }
 
-    cout << num << '\n';
+    results[0] = power(num);
+    results[1] = units(num);
+    results[2] = sum(num);
+    results[3] = average(num);
 
-    //TODO:add functiuons
+    //TODO:validate 2 decimal places for average function
 
+    for(const int &n : results) {
+        cout << setprecision(3) << n << '\n';
+    }
 
     system("pause");
     return 0;

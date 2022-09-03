@@ -1,0 +1,12 @@
+@startuml
+class com.mycompany.producto_academico_01.Alumno
+class com.mycompany.producto_academico_01.Ambiente
+class com.mycompany.producto_academico_01.Docente
+class com.mycompany.producto_academico_01.Grupo
+class com.mycompany.producto_academico_01.Persona
+class com.mycompany.producto_academico_01.Sesion
+class com.mycompany.producto_academico_01.Supervisor
+com.mycompany.producto_academico_01.Alumno --|> com.mycompany.producto_academico_01.Persona
+com.mycompany.producto_academico_01.Docente --|> com.mycompany.producto_academico_01.Persona
+com.mycompany.producto_academico_01.Supervisor --|> com.mycompany.producto_academico_01.Persona
+@enduml

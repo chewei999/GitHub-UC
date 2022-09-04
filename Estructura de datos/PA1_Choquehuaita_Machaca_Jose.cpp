@@ -12,9 +12,31 @@ string initError = "ERROR...El numero debe ser entero y entre 0 y 20, vuelva a i
 // Variables declaration
 float results[3];       // Array to store results
 int num;                // Number entered by user
-bool endInput = false;  // Boolean to validate data input
+bool validInput;        // Boolean to validate data input
 
 // Functions definitions
+
+bool validateInput(int &num) {
+    if(!(cin >> num) or cin.get() != '\n') {    // If input is not a integer
+        cin.clear();                            // we clear the stream
+        cin.ignore(256, '\n');                  // discard previous input
+        cout << initError;                      // show error message to user
+        system("pause");                        // pause to user be able to see the message
+        return false;                           // return FALSE because of the wrong input
+    }
+    else {                                      // If input is a integer
+        if (num >= 0 and num <= 20) {           // we evaluate if input is bewteen 0 and 20
+            return true;                        // return TRUE as the input is between correct range
+        }
+        else {                                  // If input is not between the correct range
+            cout << initError;                  // show error message to user
+            system("pause");                    // pause to user be able to see the message
+            return false;                       // return FALSE as the input is not between correct range
+        }
+    }
+}
+
+
 int f1_power(int num) {
     return num*num;
 }
@@ -43,25 +65,11 @@ float f4_average(float num) {
 
 int main() {
 
-    while(!endInput) { 
+    do { 
         system("cls");
         cout << initMsg;
-        while(!(cin >> num) or cin.get() != '\n') {
-            cin.clear();
-            cin.ignore(256, '\n');
-            cout <<initError;
-            system("pause");
-            system("cls");
-            cout << initMsg;
-        }
-        if (num >= 0 and num <= 20) {
-            endInput = true;
-        }
-        else {
-            cout <<initError;
-            system("pause");
-        }
-    }
+        validInput = validateInput(num);
+    } while(!validInput);
 
     results[0] = f1_power(num);
     results[1] = f2_units(num);

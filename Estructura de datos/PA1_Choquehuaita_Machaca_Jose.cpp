@@ -1,6 +1,4 @@
 #include <iostream>
-#include <math.h>
-#include <iomanip>
 
 using namespace std;
 
@@ -12,16 +10,16 @@ string initMsg = "Ingrese un numero entero entre 1 y 20: ";
 string initError = "ERROR...El numero debe ser entero y entre 0 y 20, vuelva a intentar.\n\n";
 
 // Variables declaration
-float results[4];       // Array to store results
+float results[3];       // Array to store results
 int num;                // Number entered by user
 bool endInput = false;  // Boolean to validate data input
 
 // Functions definitions
-int power(int num) {
+int f1_power(int num) {
     return num*num;
 }
 
-int units(int num) {
+int f2_units(int num) {
 
     if (num%2 == 0) {
         return abs(20 - num);
@@ -31,7 +29,7 @@ int units(int num) {
     }
 }
 
-int sum(int num) {
+int f3_sum(int num) {
     int acum = 0;
     for (int i=1 ; i<=num; i++) {
         acum +=i;
@@ -39,8 +37,8 @@ int sum(int num) {
     return acum;
 }
 
-double average(double num) {
-    return (power(num) + units(num) + sum(num))/3.0;
+float f4_average(float num) {
+    return (f1_power(num) + f2_units(num) + f3_sum(num))/3.0;
 }
 
 int main() {
@@ -65,15 +63,22 @@ int main() {
         }
     }
 
-    results[0] = power(num);
-    results[1] = units(num);
-    results[2] = sum(num);
-    results[3] = average(num);
+    results[0] = f1_power(num);
+    results[1] = f2_units(num);
+    results[2] = f3_sum(num);
+    results[3] = f4_average(num);
 
-    //TODO:validate 2 decimal places for average function
+    //TODO:validate 2 decimal places for f4_average function
 
+/*
     for(const int &n : results) {
-        cout << setprecision(3) << n << '\n';
+        printf("%.2f\n", n);
+        //cout<<n<<'\n';
+    }
+*/
+
+    for(int i=0; i<=3;i++) {
+        printf("%.2f\n", results[i]);
     }
 
     system("pause");

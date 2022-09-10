@@ -17,10 +17,17 @@
         +{abstract}void registrarDocente()
     }
 
-    class Supervisor {
+    class Supervisor{
         -dni : int
         -correo : String
         +{abstract}void registrarSupervisor()
+    }
+
+    class Administrativo{
+        -dni: int
+        -correo: String
+        -salario: float
+        +{abstract}void registrarAdministrativo()
     }
 
     class Grupo{
@@ -47,13 +54,36 @@
         +{abstract}void registrarAmbiente()
     }
 
+    class Recurso{
+        -tipo: String
+        -cantidad: int
+        -costo_unitario: float
+        +{abstract}void registrarRecurso()
+        +{abstract}void listarRecursos(string codigo_ambiente)
+    }
+
+    class Grado{
+        -codigo: String
+        +{abstract}void registrarGrado()
+    }
+
+    class Asignatura{
+        -codigo: String
+        -nombre: String
+        +{abstract}void registrarAsignatura()
+        +{abstract} void listarAsignaturas(string codigo_grado)
+    }
 
     Persona <|-- Alumno
     Persona <|-- Docente
     Persona <|-- Supervisor
+    Persona <|-- Administrativo
     Grupo "n" -- "1" Supervisor
     Grupo "1" -- "n" Alumno
     Grupo "1" -- "n" Sesion
     Sesion "n" -- "n" Docente
     Sesion "1" -- "n" Ambiente
+    Recurso "n" -- "n" Ambiente
+    Grado "1" -- "n" Asignatura
+    Docente "1" -- "1" Asignatura
 @enduml

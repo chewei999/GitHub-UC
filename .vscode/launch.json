@@ -40,8 +40,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "e:/UC/GitHub-UC/Estructura de datos",
-      "program": "e:/UC/GitHub-UC/Estructura de datos/build/Debug/outDebug",
+      "cwd": "e:/UC/GitHub-UC/Estructura de datos/PA2",
+      "program": "e:/UC/GitHub-UC/Estructura de datos/PA2/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

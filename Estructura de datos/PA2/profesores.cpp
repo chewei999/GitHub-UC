@@ -1,67 +1,62 @@
 #include <iostream>
-#include <string.h>
+#include <limits>
+#include <string>
 
 using namespace std;
 
-// Declare struct
-
-struct profesor {
-    char    nombre[40];
-    char    sexo[1];
-    int     edad;
+struct profesor {				// Definimos la estructura 'profesor' con 3 miembros
+  char nombre[25];			// Miembro de tipo char para el nombre
+  char sexo;						// Miembro de tipo char para el sexo
+  int edad;							// Miembro de tipo int para la edad
 };
 
+int		cantProf;
+bool	cantProfValida = false;
+bool	sexoValido, edadValida;
 
-int main () {
-      /**************************************/
-     /****** Declaracion de variables ******/
-    /**************************************/
-    // Variables de control
-    int     opt;
-    bool    endProgram = false;
+/** Prototipos de funciones/procesos usados **/
+void clearInputShowErrorMessage(string errorMessage);	//Proceso
 
-    // Constantes
-        string  mainMenu =
-            "       ========= MENU PRINCIPAL =========      \n\n"
-            "1. Registrar nuevos datos.\n"
-            "2. Generar reporte de registros.\n"
-            "3. Salir.\n\n"
-            "Ingrese opcion (1-3): ";
+int main() {
+  /** Solicitud al usuario de la cantidad de profesores **/
+  do {
+    system("clear");	// Limpiamos la pantalla en pro de la UX
+    cout << "Indique cantidad de docentes a ingresar: ";		// Mostramos el mensaje de peticion al usuario
+    cin >> cantProf;	// Guardamos el dato ingresado por el usuario
+    if (cin.good() and cantProf > 0) {											// Si todo va bien en la entrada de datos y el dato es mayor a 0
+			cantProfValida = true;																				// El booleano cantProfValida es verdadero, indicando que la entrada es valida y continuar con la ejecucion del programa
+    } else { // SINO
+      clearInputShowErrorMessage("Error...La cantidad debe ser mayor a cero."); 
+    }
+  } while (!cantProfValida); // Si la entrada no es valida, continuamos pidiendo la cantidad de profesores
+	/** Solicitud al usuario de la cantidad de profesores **/
+  profesor *plana_docente = new profesor[cantProf];		// Declaramos el vector de punteros de tipo 'profesor' de longitud definida por el usuario
 
+	// Recorremos el arreglo para solicitar los datos al usuario
+	cin.get();
+	for(int i=0; i<cantProf; i++) {
+		
+		// ** Solicitud del nombre del profesor(a) **//
+		cout << "[" << i << "] " << "Nombre de docente: ";
+		cin.getline(plana_docente[i].nombre,25);
+		// ** Solicitud del nombre del profesor(a) **//
+	}
 
-        string  errorMainMenu   = "ERROR...Opcion debe ser un numero entero entre 1 y 3. ";
+	for(int i=0; i<cantProf; i++) {
+		// ** Solicitud del nombre del profesor(a) **//
+		cout << plana_docente[i].nombre << endl;
+		// ** Solicitud del nombre del profesor(a) **//
+	}
 
+	delete [] plana_docente;
+  return 0;
+}
 
-    do {
-        system("cls");
-        cout << mainMenu;
+//** Definicion de funciones/procesos usados **//
 
-        while (!(cin >> opt) or cin.get() != '\n') {    // Mientras la opcion no sea un numero entero...
-            cin.clear();                                // Borramos el stream,
-            cin.ignore(256, '\n');                      // descartamos la entrada previa,
-            cout << errorMainMenu;                      // explicamos el error,
-            system("pause");
-            system("cls");
-            cout << mainMenu;                           // y volvemos a mostrar el menu.
-        }
-        switch (opt) {
-            case 1:
-                cout<<"Nuevo dato\n";
-                system("pause");
-                break;
-            case 2:
-                cout<<"Reporte\n";
-                system("pause");
-                break;
-            case 3:
-                endProgram = true;
-                break;
-            default:                        // Si la opcion no está entre 1 y 3 ...
-                cout << errorMainMenu;      // explicamos el error,
-                system("pause");
-                break;
-        }
-    } while(!endProgram);
-
-    return 0;
+void clearInputShowErrorMessage(string errorMessage) { // Proceso para limpiar el buffer de entrada y mostrar mensaje de error al usuario
+	cin.clear();	// Reiniciamos el buffer de entrada a estado BUENO
+	cin.ignore(numeric_limits<streamsize>::max(),'\n');	// Vaciamos el buffer de entrada
+	cout << errorMessage; // Mostramos un mensaje indicando el error al usuario
+	cin.get(); // Pausa para que el usuario visualice el mensaje de error
 }

@@ -178,6 +178,8 @@ int main() {
 		cout << "\nd) El numero de profesoras con edad mayor al promedio es:\t"<< cantProfesorasMayorProm;				// Mostramos la cantidad de profesoras con edad mayor al promedio
 		cout << "\ne) El numero de profesores con edad menor al promedio es:\t"<< cantProfesoresMenorProm << endl;		// Mostramos la cantidad de profesores con edad menor al promedio
 		for(int i=0;i<80;i++) cout<<"=";
+		cout << "\n\n";
+		system("pause");			// Pausa para que usuario visualice resultados
 		/** Resultados **/
 	///*************** VISUALIZACION DE DATOS ***************///
 					

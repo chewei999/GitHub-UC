@@ -213,6 +213,8 @@ int main() {
 			cout << estMenosMediaCarrera[i].nombre << " - " << estMenosMediaCarrera[i].dni << "\n";												// Mostramos el miembro correspondiente de la estructura
 		}
 		for(int i=0;i<80;i++) cout<<"=";
+		cout << "\n\n";
+		system("pause");			// Pausa para que usuario visualice resultados
 		/** Resultados **/
 	///*************** VISUALIZACION DE DATOS ***************///
 					

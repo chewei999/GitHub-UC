@@ -11,13 +11,13 @@
 
 using namespace std;
 
-struct profesor {				// Definimos la estructura 'profesor' con 3 miembros
+struct estudiante {				// Definimos la estructura 'profesor' con 3 miembros
   char	nombre[25];				// Miembro de tipo char para el nombre
   char	sexo;					// Miembro de tipo char para el sexo
   int	edad;					// Miembro de tipo int para la edad
 };
 
-int		cantProf;					// Para guardar la cantidad de profesores ingresad por el usuario
+int		cantProf;					// Para guardar la cantidad de profesores ingresados por el usuario
 
 // Variables de control
 bool	cantProfValida = false;		// Para evaluar la validez de la cantidad de profesores ingresada
@@ -50,7 +50,7 @@ int main() {
 	/** Solicitud al usuario de la cantidad de profesores **/
 
 
-	profesor *plana_docente = new profesor[cantProf];			// Declaramos el vector de punteros de tipo 'profesor' de longitud definida por el usuario
+	estudiante *plana_docente = new estudiante[cantProf];			// Declaramos el vector de punteros de tipo 'profesor' de longitud definida por el usuario
 
 	///*************** INGRESO DE DATOS ***************///
 		/** Recorremos el arreglo para solicitar los datos al usuario **/
@@ -78,7 +78,7 @@ int main() {
 				} else {																						// SINO
 					clearInputShowErrorMessage("Error...El sexo ingresado no es correcto, vuelva a intentar."); // Si hay algun error, limpiamos el buffer de entrada y mostramos el respectivo mensaje al usuario
 				}
-			} while(!sexoValido);																				// Si la entrada no es valida, continuamos pidiendo la cantidad de profesores
+			} while(!sexoValido);																				// Si la entrada no es valida, continuamos pidiendo el sexo del profesor
 			//** Sexo del profesor(a) **//
 
 			//** Edad del profesor(a) **//
@@ -94,7 +94,7 @@ int main() {
 				} else {																						// SINO
 					clearInputShowErrorMessage("Error...El docente debe ser mayor de edad."); 					// Si hay algun error, limpiamos el buffer de entrada y mostramos el respectivo mensaje al usuario
 				}
-			} while(!edadValida);																				// Si la entrada no es valida, continuamos pidiendo la cantidad de profesores
+			} while(!edadValida);																				// Si la entrada no es valida, continuamos pidiendo la edad del profesor
 			//** Edad del profesor(a) **//
 
 		}

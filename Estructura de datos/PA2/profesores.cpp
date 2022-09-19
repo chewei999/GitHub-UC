@@ -11,7 +11,7 @@
 
 using namespace std;
 
-struct estudiante {				// Definimos la estructura 'profesor' con 3 miembros
+struct profesor {				// Definimos la estructura 'profesor' con 3 miembros
   char	nombre[25];				// Miembro de tipo char para el nombre
   char	sexo;					// Miembro de tipo char para el sexo
   int	edad;					// Miembro de tipo int para la edad
@@ -50,7 +50,7 @@ int main() {
 	/** Solicitud al usuario de la cantidad de profesores **/
 
 
-	estudiante *plana_docente = new estudiante[cantProf];			// Declaramos el vector de punteros de tipo 'profesor' de longitud definida por el usuario
+	profesor *plana_docente = new profesor[cantProf];			// Declaramos el vector de punteros de tipo 'profesor' de longitud definida por el usuario
 
 	///*************** INGRESO DE DATOS ***************///
 		/** Recorremos el arreglo para solicitar los datos al usuario **/

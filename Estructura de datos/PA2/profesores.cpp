@@ -50,7 +50,7 @@ int main() {
 	/** Solicitud al usuario de la cantidad de profesores **/
 
 
-	profesor *plana_docente = new profesor[cantProf];			// Declaramos el vector de punteros de tipo 'profesor' de longitud definida por el usuario
+	profesor *plana_docente = new profesor[cantProf];				// Declaramos el vector de punteros de tipo 'profesor' de longitud definida por el usuario
 
 	///*************** INGRESO DE DATOS ***************///
 		/** Recorremos el arreglo para solicitar los datos al usuario **/

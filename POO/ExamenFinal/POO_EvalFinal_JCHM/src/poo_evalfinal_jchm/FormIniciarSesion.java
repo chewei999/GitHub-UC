@@ -126,8 +126,8 @@ public class FormIniciarSesion extends javax.swing.JFrame {
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         cConnection cn  = new cConnection();
         
-        Statement st = null;
-        ResultSet rs = null;
+        Statement st;
+        ResultSet rs;
         String query;
         
         int band = 0;   //bandera para verificacion

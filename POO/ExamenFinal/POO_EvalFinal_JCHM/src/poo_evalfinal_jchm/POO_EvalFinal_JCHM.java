@@ -15,6 +15,9 @@ public class POO_EvalFinal_JCHM {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        FormIniciarSesion FRMMAIN = new FormIniciarSesion();
+        
+        FRMMAIN.setVisible(true);
     }
     
 }

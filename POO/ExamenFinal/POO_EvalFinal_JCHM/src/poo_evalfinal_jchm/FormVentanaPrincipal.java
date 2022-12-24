@@ -165,6 +165,11 @@ public class FormVentanaPrincipal extends javax.swing.JFrame {
         btnRegistrarNuevoUsuario.setText("Registrar");
 
         btnSalirU.setText("Salir");
+        btnSalirU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirUActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1372,6 +1377,10 @@ public class FormVentanaPrincipal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnReportarActionPerformed
+
+    private void btnSalirUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirUActionPerformed
 
     /**
      * @param args the command line arguments

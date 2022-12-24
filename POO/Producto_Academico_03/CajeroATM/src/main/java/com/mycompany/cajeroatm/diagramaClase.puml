@@ -1,0 +1,83 @@
+@startuml
+    interface ATM {
+        -usuarioAutenticado : Boolean = false
+    }
+
+    abstract Transaccion {
+        -numeroCuenta : Integer
+        +(abstract) void obtenerNumeroCuenta()
+        +(abstract) void ejecutar()
+    }
+
+    class SolicitudSaldo {
+        +(abstract) void ejecutar()
+    }
+    
+    class Retiro {
+        -monto : Double
+        +(abstract) void ejecutar()
+    }
+
+    class Deposito {
+        -monto : Double
+        +(abstract) void ejecutar()
+    }
+
+    class BaseDatosBanco {
+        +(abstract) void autenticarUsuario() : Boolean
+        +(abstract) void obtenerSaldoDisponible() : Double
+        +(abstract) void obtenerSaldoTotal() : Double
+        +(abstract) void abonar()
+        +(abstract) void cargar()
+    }
+
+    class Cuenta {
+        -numeroCuenta : Integer
+        -nip : Integer
+        -saldoDisponible : Double
+        -saldoTotal : Double
+        +(abstract) void validarNIP() : Boolean
+        +(abstract) void obteberSaldoDisponible() : Double
+        +(abstract) void obtenerSaltoTotal() : Double
+        +(abstract) void abonar()
+        +(abstract) void cargar()
+    }
+    
+    class Pantalla {
+        +(abstract) void mostrarMensaje()
+    }
+
+    class Teclado {
+        +(abstract) void obtenerEntrada() : Integer
+    }
+    
+    class DispensadorEfectivo {
+        -cuenta : Integer = 500
+        +(abstract) void dispensarEfectivo()
+        +(abstract) void haySuficienteDisponible() : Boolean
+    }
+
+
+
+
+
+
+    Transaccion --> BaseDatosBanco
+    Transaccion --> Pantalla
+    ATM --> BaseDatosBanco
+    ATM --> Transaccion
+    Deposito --> Teclado
+    Deposito --> RanuraDeposito
+    Retiro --> DispensadorEfectivo
+    Retiro --> Teclado
+
+    Transaccion <|-- Retiro
+    Transaccion <|-- Deposito
+    Transaccion <|-- SolicitudSaldo
+
+    RanuraDeposito <--* ATM
+    Teclado <--* ATM
+    DispensadorEfectivo <--* ATM
+    Pantalla <--* ATM
+    Cuenta <--* BaseDatosBanco
+@enduml
